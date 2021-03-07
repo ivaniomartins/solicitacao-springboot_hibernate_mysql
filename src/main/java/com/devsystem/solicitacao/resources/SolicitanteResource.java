@@ -17,8 +17,8 @@ public class SolicitanteResource {
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Solicitante> listar() {
 		
-		Solicitante s1 = new Solicitante(null,"Ivanio");
-		Solicitante s2 = new Solicitante(null, "João");
+		Solicitante s1 = new Solicitante(null,"Ivanio", "ivaniomartins@gmail.com");
+		Solicitante s2 = new Solicitante(null, "João", "joao@gmail.com");
         
 		List<Solicitante> lista = new ArrayList<>();
 		lista.add(s1);

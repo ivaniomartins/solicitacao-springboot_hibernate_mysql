@@ -16,11 +16,13 @@ public class Solicitante implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer solicitante_id;
 	private String nm_solicitante;
+	private String email;
 
-	public Solicitante(Integer solicitante_id, String nm_solicitante) {
+	public Solicitante(Integer solicitante_id, String nm_solicitante, String email) {
 
 		this.solicitante_id = solicitante_id;
 		this.nm_solicitante = nm_solicitante;
+		this.email = email;
 	}
 
 	public Integer getSolicitante_id() {
@@ -37,6 +39,14 @@ public class Solicitante implements Serializable {
 
 	public void setNm_solicitante(String nm_solicitante) {
 		this.nm_solicitante = nm_solicitante;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
