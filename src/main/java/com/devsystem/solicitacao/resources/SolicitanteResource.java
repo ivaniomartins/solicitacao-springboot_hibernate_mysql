@@ -1,31 +1,29 @@
 package com.devsystem.solicitacao.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devsystem.solicitacao.domains.Solicitante;
+import com.devsystem.solicitacao.services.SolicitanteService;
 
 @RestController
 @RequestMapping(value="/solicitantes")
 public class SolicitanteResource {
+	@Autowired
+	private SolicitanteService service;
 	
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public List<Solicitante> listar() {
+	@RequestMapping(value="/id",method=RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Integer id ) {
 		
-		Solicitante s1 = new Solicitante(null,"Ivanio", "ivaniomartins@gmail.com");
-		Solicitante s2 = new Solicitante(null, "João", "joao@gmail.com");
-        
-		List<Solicitante> lista = new ArrayList<>();
-		lista.add(s1);
-		lista.add(s2);
+		Solicitante obj = service.buscar(id);
 		
-		return lista;
-
+		return ResponseEntity.ok().body(obj);
+		
 	}
 	
 	

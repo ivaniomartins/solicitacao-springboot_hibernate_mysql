@@ -8,13 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.devsystem.solicitacao.domains.Solicitante;
-import com.devsystem.solicitacao.repository.SolicianteRepository;
+import com.devsystem.solicitacao.repository.SolicitanteRepository;
 
 @SpringBootApplication
 public class SolicitacaoApplication implements CommandLineRunner {
 
 	@Autowired
-	public SolicianteRepository sr;
+	public SolicitanteRepository sr;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SolicitacaoApplication.class, args);
