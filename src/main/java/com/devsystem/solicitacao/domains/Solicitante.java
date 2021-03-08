@@ -6,17 +6,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="solicitante")
 public class Solicitante implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer solicitante_id;
 	private String nm_solicitante;
 	private String email;
+	
+	
 
 	public Solicitante(Integer solicitante_id, String nm_solicitante, String email) {
 

@@ -17,7 +17,7 @@ public class SolicitanteResource {
 	private SolicitanteService service;
 	
 	
-	@RequestMapping(value="/id",method=RequestMethod.GET)
+	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id ) {
 		
 		Solicitante obj = service.buscar(id);

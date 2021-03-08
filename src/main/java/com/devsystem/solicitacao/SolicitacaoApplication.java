@@ -22,7 +22,9 @@ public class SolicitacaoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-	
+		
+		sr.deleteAll(Arrays.asList());
+		
 		Solicitante s1 = new Solicitante(null, "Ivanio Martins", "ivaniomartins1991@gmail.com");
 		Solicitante s2 = new Solicitante(null, "Janinny Pessoa", "janinnypessoa@gmail.com");
 		
