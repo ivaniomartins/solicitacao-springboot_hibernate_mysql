@@ -1,27 +1,37 @@
 package com.devsystem.solicitacao.domains;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="solicitante")
+@Table(name = "solicitante")
 public class Solicitante implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Integer solicitante_id;
 	private String nm_solicitante;
 	private String email;
-	
-	
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario")
+	private List<Solicitacao> solicitacoes = new ArrayList<>();
+
+	public Solicitante() {
+
+	}
 
 	public Solicitante(Integer solicitante_id, String nm_solicitante, String email) {
 
@@ -52,6 +62,18 @@ public class Solicitante implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Solicitacao> getSolicitacoes() {
+		return solicitacoes;
+	}
+
+	public void setSol(List<Solicitacao> solicitacoes) {
+		this.solicitacoes = solicitacoes;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
