@@ -8,12 +8,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.devsystem.solicitacao.domains.Servico;
+import com.devsystem.solicitacao.domains.ItemSolicitacao;
 import com.devsystem.solicitacao.domains.Solicitacao;
 import com.devsystem.solicitacao.domains.Solicitante;
 import com.devsystem.solicitacao.repository.ServicoRepository;
 import com.devsystem.solicitacao.repository.SolicitacaoRepository;
 import com.devsystem.solicitacao.repository.SolicitanteRepository;
+import com.devsystem.solicitacao.resources.ItemSolicitacaoRepository;
 
 @SpringBootApplication
 public class SolicitacaoApplication implements CommandLineRunner {
@@ -26,6 +27,9 @@ public class SolicitacaoApplication implements CommandLineRunner {
 	
 	@Autowired
 	public ServicoRepository ser;
+	
+	@Autowired
+	public ItemSolicitacaoRepository is;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SolicitacaoApplication.class, args);
@@ -49,11 +53,15 @@ public class SolicitacaoApplication implements CommandLineRunner {
 
 		
 		sol.saveAll(Arrays.asList(t1,t2));
+				
 		
-		
-		Servico ser1 = new Servico(null, "Limpeza da caixa d'agua");
-		
-		ser.saveAll(Arrays.asList(ser1));
+	    ItemSolicitacao it = new ItemSolicitacao(null, t1);
+	    ItemSolicitacao it2 = new ItemSolicitacao(null, t1);
+	    
+	    t1.getItemSolicitacoes().add(it);
+	    t1.getItemSolicitacoes().add(it2);
+	   
+	   is.saveAll(Arrays.asList(it, it2));
 
 	}
 

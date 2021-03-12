@@ -7,13 +7,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="servico")
+@Table(name = "servico")
 public class Servico {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer servicoId;
 	private String dsServico;
+
+
 
 	public Servico() {
 
@@ -41,6 +43,8 @@ public class Servico {
 		this.dsServico = dsServico;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -65,8 +69,5 @@ public class Servico {
 			return false;
 		return true;
 	}
-	
-	
-	
 
 }

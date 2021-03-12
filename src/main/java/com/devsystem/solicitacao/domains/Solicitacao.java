@@ -2,6 +2,8 @@ package com.devsystem.solicitacao.domains;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "solicitacao")
@@ -27,19 +32,22 @@ public class Solicitacao implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "solicitante_id")
 	private Solicitante usuario;
+    
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="solicitacoes")
+	private List<ItemSolicitacao> itemsolicitacoes = new ArrayList<>();
 
 	public Solicitacao() {
 
 	}
 
 	public Solicitacao(Integer solicitacao_id, LocalDate dt_solicitacao, Solicitante usuario) {
-	
+
 		this.solicitacao_id = solicitacao_id;
 		this.dt_solicitacao = dt_solicitacao;
 		this.usuario = usuario;
 	}
-
-
 
 	public Integer getSolicitacao_id() {
 		return solicitacao_id;
@@ -63,6 +71,14 @@ public class Solicitacao implements Serializable {
 
 	public void setSolicitante(Solicitante solicitante) {
 		this.usuario = solicitante;
+	}
+	
+	public List<ItemSolicitacao> getItemSolicitacoes() {
+		return itemsolicitacoes;
+	}
+
+	public void setItemSolicitacoes(List<ItemSolicitacao> itemsolicitacoes) {
+		this.itemsolicitacoes = itemsolicitacoes;
 	}
 
 	@Override
