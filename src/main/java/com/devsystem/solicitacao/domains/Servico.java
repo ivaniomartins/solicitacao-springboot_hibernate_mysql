@@ -15,8 +15,6 @@ public class Servico {
 	private Integer servicoId;
 	private String dsServico;
 
-
-
 	public Servico() {
 
 	}
@@ -42,8 +40,6 @@ public class Servico {
 	public void setDsServico(String dsServico) {
 		this.dsServico = dsServico;
 	}
-
-	
 
 	@Override
 	public int hashCode() {

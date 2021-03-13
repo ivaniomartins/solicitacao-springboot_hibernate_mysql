@@ -1,15 +1,12 @@
 package com.devsystem.solicitacao.domains;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,13 +21,19 @@ public class ItemSolicitacao {
 	@JoinColumn(name = "solicitacao_id")
 	private Solicitacao solicitacoes;
 
-
-	public ItemSolicitacao(Integer itemId, Solicitacao solicitacoes) {
+    @OneToOne
+	private Servico servicos;
+	
+	public ItemSolicitacao(Integer itemId, Solicitacao solicitacoes, Servico servicos) {
 
 		this.itemId = itemId;
 		this.solicitacoes = solicitacoes;
-	}
+		this.servicos = servicos;
 
+	}
+     
+
+	
 	public Integer getItemId() {
 		return itemId;
 	}
@@ -46,6 +49,20 @@ public class ItemSolicitacao {
 	public void setSolicitacoes(Solicitacao solicitacoes) {
 		this.solicitacoes = solicitacoes;
 	}
+	
+	
+	
+	public Servico getServicos() {
+		return servicos;
+	}
+
+
+
+	public void setServicos(Servico servicos) {
+		this.servicos = servicos;
+	}
+
+
 
 	@Override
 	public int hashCode() {
