@@ -1,5 +1,6 @@
 package com.devsystem.solicitacao.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +24,10 @@ public class SolicitanteService {
 		
 		return obj.orElse(null);
 	}
+	
+
+	public List<Solicitante> toDosSolicitantes(){
+		return sp.findAll();
+	}
+	
 }
