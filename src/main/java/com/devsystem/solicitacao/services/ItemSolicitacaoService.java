@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.devsystem.solicitacao.domains.ItemSolicitacao;
-import com.devsystem.solicitacao.resources.ItemSolicitacaoRepository;
+import com.devsystem.solicitacao.repository.ItemSolicitacaoRepository;
 
 @Service
 public class ItemSolicitacaoService {

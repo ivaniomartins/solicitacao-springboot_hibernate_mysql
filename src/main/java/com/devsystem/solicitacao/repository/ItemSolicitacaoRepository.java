@@ -1,4 +1,4 @@
-package com.devsystem.solicitacao.resources;
+package com.devsystem.solicitacao.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

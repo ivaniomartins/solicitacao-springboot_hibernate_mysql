@@ -12,10 +12,10 @@ import com.devsystem.solicitacao.domains.ItemSolicitacao;
 import com.devsystem.solicitacao.domains.Servico;
 import com.devsystem.solicitacao.domains.Solicitacao;
 import com.devsystem.solicitacao.domains.Solicitante;
+import com.devsystem.solicitacao.repository.ItemSolicitacaoRepository;
 import com.devsystem.solicitacao.repository.ServicoRepository;
 import com.devsystem.solicitacao.repository.SolicitacaoRepository;
 import com.devsystem.solicitacao.repository.SolicitanteRepository;
-import com.devsystem.solicitacao.resources.ItemSolicitacaoRepository;
 
 @SpringBootApplication
 public class SolicitacaoApplication implements CommandLineRunner {
@@ -62,11 +62,15 @@ public class SolicitacaoApplication implements CommandLineRunner {
 		
 	    ItemSolicitacao it = new ItemSolicitacao(null, t1,srv1);
 	    ItemSolicitacao it2 = new ItemSolicitacao(null, t1,srv2);
+	    ItemSolicitacao it3 = new ItemSolicitacao(null, t2,srv1);
+	    ItemSolicitacao it4 = new ItemSolicitacao(null, t2,srv2);
 	    
 	    t1.getItemSolicitacoes().add(it);
 	    t1.getItemSolicitacoes().add(it2);
+	    t2.getItemSolicitacoes().add(it3);
+	    t2.getItemSolicitacoes().add(it4);
 	   
-	   is.saveAll(Arrays.asList(it, it2));
+	   is.saveAll(Arrays.asList(it, it2,it3, it4));
 
 	}
 

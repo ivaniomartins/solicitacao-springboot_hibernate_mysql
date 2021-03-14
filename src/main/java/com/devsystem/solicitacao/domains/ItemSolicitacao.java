@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "item_solicitacao")
 public class ItemSolicitacao {
@@ -16,13 +18,19 @@ public class ItemSolicitacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer itemId;
-
+    
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "solicitacao_id")
 	private Solicitacao solicitacoes;
 
     @OneToOne
 	private Servico servicos;
+    
+    
+    public ItemSolicitacao() {
+    	
+    }
 	
 	public ItemSolicitacao(Integer itemId, Solicitacao solicitacoes, Servico servicos) {
 
