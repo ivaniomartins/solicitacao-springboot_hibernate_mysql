@@ -25,12 +25,12 @@ public class Solicitacao implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer solicitacao_id;
+	private Integer solicitacaoId;
 
-	private LocalDate dt_solicitacao = LocalDate.now();
+	private LocalDate dtSolicitacao = LocalDate.now();
 
 	@ManyToOne
-	@JoinColumn(name = "solicitante_id")
+	@JoinColumn(name = "solicitanteId")
 	private Solicitante usuario;
     
 	
@@ -42,37 +42,31 @@ public class Solicitacao implements Serializable {
 
 	}
 
-	public Solicitacao(Integer solicitacao_id, LocalDate dt_solicitacao, Solicitante usuario) {
+	public Solicitacao(Integer solicitacaoId, LocalDate dtSolicitacao, Solicitante usuario) {
 
-		this.solicitacao_id = solicitacao_id;
-		this.dt_solicitacao = dt_solicitacao;
+		this.solicitacaoId = solicitacaoId;
+		this.dtSolicitacao = dtSolicitacao;
 		this.usuario = usuario;
 	}
+      
 
-	public Integer getSolicitacao_id() {
-		return solicitacao_id;
-	}
-
-	public void setSolicitacao_id(Integer solicitacao_id) {
-		this.solicitacao_id = solicitacao_id;
-	}
-
-	public LocalDate getDt_solicitacao() {
-		return dt_solicitacao;
-	}
-
-	public void setDt_solicitacao(LocalDate dt_solicitacao) {
-		this.dt_solicitacao = dt_solicitacao;
-	}
-
-	public Solicitante getSolicitante() {
-		return usuario;
-	}
-
-	public void setSolicitante(Solicitante solicitante) {
-		this.usuario = solicitante;
-	}
 	
+	public Integer getSolicitacaoId() {
+		return solicitacaoId;
+	}
+
+	public void setSolicitacaoId(Integer solicitacaoId) {
+		this.solicitacaoId = solicitacaoId;
+	}
+
+	public LocalDate getDtSolicitacao() {
+		return dtSolicitacao;
+	}
+
+	public void setDtSolicitacao(LocalDate dtSolicitacao) {
+		this.dtSolicitacao = dtSolicitacao;
+	}
+
 	public List<ItemSolicitacao> getItemSolicitacoes() {
 		return itemsolicitacoes;
 	}
@@ -85,7 +79,7 @@ public class Solicitacao implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((solicitacao_id == null) ? 0 : solicitacao_id.hashCode());
+		result = prime * result + ((solicitacaoId == null) ? 0 : solicitacaoId.hashCode());
 		return result;
 	}
 
@@ -98,10 +92,10 @@ public class Solicitacao implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Solicitacao other = (Solicitacao) obj;
-		if (solicitacao_id == null) {
-			if (other.solicitacao_id != null)
+		if (solicitacaoId == null) {
+			if (other.solicitacaoId != null)
 				return false;
-		} else if (!solicitacao_id.equals(other.solicitacao_id))
+		} else if (!solicitacaoId.equals(other.solicitacaoId))
 			return false;
 		return true;
 	}

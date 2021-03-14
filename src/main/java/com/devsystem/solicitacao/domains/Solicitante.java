@@ -21,8 +21,8 @@ public class Solicitante implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer solicitante_id;
-	private String nm_solicitante;
+	private Integer solicitanteId;
+	private String nmSolicitante;
 	private String email;
 
 	@JsonIgnore
@@ -33,27 +33,27 @@ public class Solicitante implements Serializable {
 
 	}
 
-	public Solicitante(Integer solicitante_id, String nm_solicitante, String email) {
+	public Solicitante(Integer solicitanteId, String nmSolicitante, String email) {
 
-		this.solicitante_id = solicitante_id;
-		this.nm_solicitante = nm_solicitante;
+		this.solicitanteId = solicitanteId;
+		this.nmSolicitante = nmSolicitante;
 		this.email = email;
 	}
 
-	public Integer getSolicitante_id() {
-		return solicitante_id;
+	public Integer getSolicitanteId() {
+		return solicitanteId;
 	}
 
-	public void setSolicitante_id(Integer solicitante_id) {
-		this.solicitante_id = solicitante_id;
+	public void setSolicitanteId(Integer solicitanteId) {
+		this.solicitanteId = solicitanteId;
 	}
 
-	public String getNm_solicitante() {
-		return nm_solicitante;
+	public String getNmSolicitante() {
+		return nmSolicitante;
 	}
 
-	public void setNm_solicitante(String nm_solicitante) {
-		this.nm_solicitante = nm_solicitante;
+	public void setNmSolicitante(String nmSolicitante) {
+		this.nmSolicitante = nmSolicitante;
 	}
 
 	public String getEmail() {
@@ -80,7 +80,7 @@ public class Solicitante implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((solicitante_id == null) ? 0 : solicitante_id.hashCode());
+		result = prime * result + ((solicitanteId == null) ? 0 : solicitanteId.hashCode());
 		return result;
 	}
 
@@ -93,12 +93,15 @@ public class Solicitante implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Solicitante other = (Solicitante) obj;
-		if (solicitante_id == null) {
-			if (other.solicitante_id != null)
+		if (solicitanteId == null) {
+			if (other.solicitanteId != null)
 				return false;
-		} else if (!solicitante_id.equals(other.solicitante_id))
+		} else if (!solicitanteId.equals(other.solicitanteId))
 			return false;
 		return true;
 	}
+
+
+
 
 }
