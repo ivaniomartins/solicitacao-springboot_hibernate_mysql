@@ -22,7 +22,7 @@ public class SolicitanteResource {
 @RequestMapping(method=RequestMethod.GET)	
 public ResponseEntity<List<Solicitante>> findAll(){
 		
-		List <Solicitante> list = service.toDosSolicitantes();
+		List <Solicitante> list = service.todosSolicitantes();
 		
 		return ResponseEntity.ok().body(list); 
 		

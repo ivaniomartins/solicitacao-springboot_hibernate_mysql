@@ -26,7 +26,7 @@ public class SolicitanteService {
 	}
 	
 
-	public List<Solicitante> toDosSolicitantes(){
+	public List<Solicitante> todosSolicitantes(){
 		return sp.findAll();
 	}
 	
