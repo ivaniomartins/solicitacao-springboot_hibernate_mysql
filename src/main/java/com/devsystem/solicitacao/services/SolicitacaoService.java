@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.devsystem.solicitacao.domains.Solicitacao;
 import com.devsystem.solicitacao.repository.SolicitacaoRepository;
+import com.devsystem.solicitacao.services.exception.DataNotFoundException;
 
 @Service
 public class SolicitacaoService {
@@ -18,7 +19,8 @@ public class SolicitacaoService {
 public Solicitacao buscarsol(Integer id) {
 	Optional<Solicitacao> op = solrep.findById(id);
 	
-	return op.orElse(null);
+	return op.orElseThrow(()-> new DataNotFoundException("Solicitacao não encontrada: " + id + " Tipo: " +
+	Solicitacao.class.getName()));
 }
 
 

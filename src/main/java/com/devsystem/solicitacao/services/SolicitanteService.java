@@ -21,9 +21,11 @@ public class SolicitanteService {
 		
 		Optional<Solicitante> obj = sp.findById(id);
 		
+			return obj.orElse(null);
+		}
 		
-		return obj.orElse(null);
-	}
+		
+
 	
 
 	public List<Solicitante> todosSolicitantes(){
