@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "solicitacao")
@@ -29,7 +28,7 @@ public class Solicitacao implements Serializable {
 	private Integer solicitacaoId;
 
 	private LocalDate dtSolicitacao = LocalDate.now();
-    @JsonManagedReference
+    @JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "solicitanteId")
 	private Solicitante usuario;

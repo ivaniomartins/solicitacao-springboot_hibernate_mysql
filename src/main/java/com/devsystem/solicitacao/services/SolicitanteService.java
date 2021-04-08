@@ -24,7 +24,11 @@ public class SolicitanteService {
 			return obj.orElse(null);
 		}
 		
-		
+	public Solicitante insert(Solicitante obj){
+	     obj.setSolicitanteId(null);
+	    return sp.save(obj); 
+			
+	}
 
 	
 
